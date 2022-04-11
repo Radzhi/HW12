@@ -20,11 +20,11 @@ def upload():
         content = request.values['content']
         posts = load_posts()
         posts.append({
-            'pic': f'/uploads/images/{filename}',
+            'pic': f'uploads/images/{filename}',
             'content': content
         })
         uploads_posts(posts)
-        file.save(f'/uploads/images/{filename}')
+        file.save(f'uploads/images/{filename}')
         if filename.split('.')[-1] not in ['png', 'jpeg', 'jpg']:
             logging.info('Файл не изображение')
     except FileNotFoundError:
